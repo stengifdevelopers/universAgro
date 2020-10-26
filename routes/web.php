@@ -61,6 +61,17 @@ Route::prefix('pages')->group(function()
 
     Route::resource('forum', 'ForumController');
 
+    Route::get('tutorials/tutoriel', 'TutorialsController@tutoriel')->name('tutoriel');
+
+    Route::get('tutorials/details', 'TutorialsController@details')->name('details');
+
+    Route::get('/apropos', 'HomeController@apropos')->name('apropos');
+
+    Route::post('articles/findArticle', 'ArticlesController@findArticle')->name('findArticle');
+
+    Route::post('emplois/findOffre', 'EmploisController@findOffre')->name('findOffre');
+
+    Route::post('annonces/findAnnonce', 'AnnoncesController@findAnnonce')->name('findAnnonce');
 
 });
 

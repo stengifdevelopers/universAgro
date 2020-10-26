@@ -16,34 +16,40 @@
 </div>
 <div class="container my-5">
     <div class="green pb-1 px-5 rounded">
-    <form action="" method="POST">
+
+    <form action="{{ route('findArticle') }}" method="POST">
+        @csrf
         <div class="row d-flex align-items-center justify-content-center">
-            <div class="col-lg-8 justify-content-sm-center justify-content-lg-center">
+            <div class="col-lg-6 justify-content-sm-center justify-content-lg-center">
               <div class="row pt-3 ">
                 <div class="form-group mr-3">
-                    <select class="browser-default custom-select" style="border-color: darkorange; ">
-                        <option selected>Choisir une categorie</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                    <select class="browser-default custom-select" name="id" style="border-color: darkorange; ">
+                        <option selected disabled>Choisir une categorie</option>
+                        @foreach ($listCategories as $listCategories)
+                        <option value="{{$listCategories->id}}">{{$listCategories->nom}}</option>
+                        @endforeach
                     </select>
                 </div>
                 <div class="form-group ">
-                    <select class="browser-default custom-select" style="border-color: darkorange; ">
-                        <option selected>Choisir un ordre</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                    <select class="browser-default custom-select" name="prix" style="border-color: darkorange; ">
+                        <option selected disabled>Trier par prix</option>
+                        @foreach ($articlesPrix as $item)
+                        <option value="{{$item->prix}}">{{$item->prix}}</option>
+                        @endforeach
                     </select>
                 </div>
 
               </div>
             </div>
-            <div class="col-lg-4">
-              <div class="row d-flex justify-content-end align-items-center justify-content-sm-center">
-                    <input class="form-control form-control-md  mr-3 w-75" type="text" placeholder="Recherche un mot" aria-label="Search" style="border-color: darkorange; ">
-                    <i class="far btn-link text-decoration-none fa-search" aria-hidden="true"></i>
+            <div class="col-lg-6">
+                <div class="row">
+              <div class="col-md-8">
+                    <input class="form-control form-control-md  mr-3 w-100" type="text" name="nom" placeholder="Saisir un mot clé" aria-label="Search" style="border-color: darkorange; ">
               </div>
+              <div class="col-md-4">
+                <input type="submit" class="btn-sm btn-primary" value="Recherchez" >
+              </div>
+            </div>
             </div>
          </div>
     </form>
@@ -72,13 +78,13 @@
                         <h5 class="card-title orange-text font-weight-bold text-center " style="height:30px">
                             @php
                             $description=$item->nom;
-                            if (strlen($description  )>20) 
+                            if (strlen($description  )>20)
                                 {
                                 $description=substr($description, 0, 19);
                                 $dernier_mot=strrpos($description," ");
                                 $description=substr($description,0,$dernier_mot)."...";
                                 }
-                            @endphp 
+                            @endphp
                                 {{$description}}
                         </h5>
                     </a>

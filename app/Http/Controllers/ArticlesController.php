@@ -20,7 +20,8 @@ class ArticlesController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth')->except(['list', 'details']);
+        $this->middleware('auth')->except(['list', 'details','findArticle']);
+
     }
 
 
@@ -47,10 +48,31 @@ class ArticlesController extends Controller
         return view('Admin.articles.index', compact('articles'));
     }
 
+    public function findArticle(Request $request)
+    {
+        $articles=Article::orderBy('id', 'DESC');
+       
+        $request->id !=null ? $articles=$articles->where('categorie_id', $request->id):$articles=$articles;
+        $request->prix !=null ? $articles= $articles->where('prix', $request->prix):$articles=$articles;
+        $request->nom !=null ? $articles= $articles->where('nom',"LIKE","%".$request->nom."%"):$articles=$articles;
+        $articles= $articles->limit(10)->get();
+
+        $listCategories=Categorie::orderBy('id', 'DESC')->get();
+
+        $articlesPrix=Article::orderBy('id', 'DESC')->get();
+
+        return view('pages.articles.index', compact('articles','listCategories','articlesPrix'));
+    }
+
     public function list()
     {
         $articles=Article::orderBy('id', 'DESC')->get();
-        return view('pages.articles.index', compact('articles'));
+        $listCategories=Categorie::orderBy('id', 'DESC')->get();
+
+        $articlesPrix=Article::orderBy('id', 'DESC')->get();
+
+        return view('pages.articles.index', compact('articles','listCategories','articlesPrix'));
+       
     }
 
     public function details($id)
@@ -58,19 +80,19 @@ class ArticlesController extends Controller
         $articles=Article::find($id);
         if(!$articles) return view('errors.404');
 
-        $details = DB::select('SELECT users.*,blogs.*, articles.*, blogs.id as blog_id, profiles.*  
-                               FROM users, profiles, blogs, articles 
-                               WHERE profiles.user_id=users.id 
-                               AND users.id=blogs.sup_id 
+        $details = DB::select('SELECT users.*,blogs.*, articles.*, blogs.id as blog_id, profiles.*
+                               FROM users, profiles, blogs, articles
+                               WHERE profiles.user_id=users.id
+                               AND users.id=blogs.sup_id
                                AND articles.blo_id=blogs.id
-                               AND articles.id= "'.$articles->id.'"  
+                               AND articles.id= "'.$articles->id.'"
                               ');
 
         $similar=Article::where('categorie_id', $articles->categorie_id)
                             ->where('id', '!=', $articles->id)
                             ->orderBy('id', 'DESC')
                             ->limit(5)->get();
-                        
+
 
         return view('pages.articles.show', compact('articles', 'similar', 'details'));
     }

@@ -16,7 +16,7 @@ class EmploisController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth')->except(['list', 'details']);
+        $this->middleware('auth')->except(['list', 'details','findOffre']);
     }
 
 
@@ -36,6 +36,18 @@ class EmploisController extends Controller
         ->get();
 
         return view('Admin.emplois.index', compact('emplois'));
+    }
+
+    public function findOffre(Request $request)
+    {
+        $emplois=Offre::orderBy('id', 'DESC');
+       
+        $request->type_offre !=null ? $emplois=$emplois->where('type_offre', $request->type_offre):$emplois=$emplois;
+        $request->type_contrat !=null ? $emplois= $emplois->where('type_contrat', $request->type_contrat):$emplois=$emplois;
+        $request->titre !=null ? $emplois= $emplois->where('titre',"LIKE","%".$request->titre."%"):$emplois=$emplois;
+        $emplois= $emplois->limit(10)->get();
+
+        return view('pages.offers.index', compact('emplois'));
     }
 
     public function list()

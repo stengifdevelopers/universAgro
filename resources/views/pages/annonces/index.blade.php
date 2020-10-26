@@ -24,25 +24,25 @@
 	<li class="nav-item pt-2 ">
 		<a class="nav-link" ><h6 class=" black-text font-weight-bold">Agri-Actualité: <span class="green-text">{{count($actu)}}</span></h6></a>
     </li>
+    <form action="{{ route('findAnnonce') }}" method="POST">
+        @csrf
     <div class="nav-item d-flex justify-content-end align-items-end ml-5 pt-2 float-right">
         <div class="form-group ">
-            <select class="browser-default custom-select form-group-md" style="border-color: green; ">
-                <option disabled selected>Trier par categorie</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+            <select name="type_announce" class="browser-default custom-select form-group-md" style="border-color: green; ">
+                <option disabled selected>Trier par type</option>
+                <option value="0">Actualité</option>
+                <option value="1">Offre de service</option>
             </select>
+        </div>
+        <div class="form-group ml-3">
+            <input class="form-control form-control-md  mr-3 w-100" type="text" name="titre" placeholder="Saisir un mot clé" aria-label="Search" style="border-color: darkorange; ">
         </div>
 
         <div class="form-group ml-3">
-            <select class="browser-default custom-select form-group-md" style="border-color: green; ">
-                <option selected>Trier par plus recent</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-            </select>
-        </div>
+            <input type="submit" class="btn-sm btn-primary" value="Recherchez" >
+          </div>
     </div>
+</form>
 
 </ul>
 

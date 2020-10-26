@@ -12,7 +12,7 @@
             <div class="card">
                 <div class="card-header">
                     <div class="text-center">
-                        <img src="{{asset('img/logo.png')}}" class="img-fluid rounded-circe" style="height:70px;widht:70px">
+                        <img src="{{asset('img/Logo_header.png')}}" class="img-fluid rounded-circe">
                     </div>
                 </div>
 

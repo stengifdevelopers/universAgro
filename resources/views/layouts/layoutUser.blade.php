@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title> AgroCam237 {{ page_title($page ?? 'Accueil') }}</title>
+  <title>Univers Agro237 {{ page_title($page ?? 'Accueil') }}</title>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
   <!-- Bootstrap core CSS -->
@@ -16,15 +16,15 @@
   <!-- Your custom styles (optional) -->
   <link href="{{asset('css/style.css')}}" rel="stylesheet">
 </head>
-<body>
 
-  <header>
+ <header>
    <div class="blue-grey lighten-5 ">
      <div class="mx-5">
          <div class="row d-flex align-items-center justify-content-center pt-3">
            <div class="col-lg-8">
              <div class="row d-flex justify-content-center">
-               <p class="pr-3 mr-2">Télephone: <span class="green-text">691547755</span></p>
+               <p class="border_left pr-3 mr-2">Télephone: <span class="green-text">+237 696024400 / 679703844</span></p>
+               <p class="">Email: <span class="green-text">stengifservices@gmail.com</span></p>
              </div>
            </div>
            <div class="col-lg-4">
@@ -75,14 +75,14 @@
 <nav class="navbar navbar-expand-lg navbar-dark black-text py-0">
 <div class="container" id="navigations">
   <!-- Navbar brand -->
-  <a class="navbar-brand" href="{{ route('accueil') }}"><img src="{{asset('img/logo.png')}}" class="w-25 h-25 img-fluid" alt="Logo_UA_237"></a>
+  <a class="navbar-brand" href="{{ route('accueil') }}"><img src="{{asset('img/Logo_menu.png')}}" class="w-50 h-75 img-fluid" alt="Logo_UA_237"></a>
 
   <!-- Collapse button -->
   <button class="navbar-toggler btn-outline-warning " type="button" data-toggle="collapse" data-target="#basicExampleNav"
     aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
     <i class="fas fa-align-justify green-text"></i>
   </button>
-  <!-- Collapsible content -->  
+  <!-- Collapsible content -->
   <div class="collapse navbar-collapse" id="basicExampleNav">
     <!-- Links -->
     <ul class="navbar-nav ml-auto font-weight-bold " style="font-size: 1.3em">
@@ -101,7 +101,7 @@
       <a class="nav-link  text-black-color-st" href="{{ route('blogs.index') }}">Blog</a>
       </li>
       <li class="nav-item pb-2 pt-4 text-black-st">
-        <a class="nav-link  text-black-color-st" href="{{ route('blogs.index') }}">Tutoriels</a>
+        <a class="nav-link  text-black-color-st" href="{{ route('tutoriel') }}">Tutoriels</a>
       </li>
       <li class="nav-item pb-2 pt-4 text-black-st" <?php if (isset($page) && $page=='Annonces') { echo' id="en-cours" ';} ?>>
         <a class="nav-link  text-black-color-st" href="{{ route('annonces') }}">Annonces</a>
@@ -112,10 +112,15 @@
       <li class="nav-item pb-2 pt-4 text-black-st" <?php if (isset($page) && $page=='Offres') { echo' id="en-cours" ';} ?>>
         <a class="nav-link  text-black-color-st" href="{{ route('offers') }}">Emplois</a>
       </li>
+      <li class="nav-item pb-2 pt-4 text-black-st">
+        <a class="nav-link  text-black-color-st" href="{{ route('apropos') }}">A propos</a>
+      </li>
     </ul>
   </div>
 </div>
 </nav>
+</header>
+
 {{-- <div class="container mt-5">
         <div class="">
              @include('includes.messageflash')

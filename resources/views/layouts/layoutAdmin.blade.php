@@ -6,9 +6,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
-  <meta name="author" content="Ella Jean Pierre Alain Bernard">
+  <meta name="author" content="Koulong Meli Igor, Fomo Aubin Loic, Yemeli Stanislaus">
 
-  <title>Administration AgroCam237</title>
+ <title>Administration Univers Agro237</title>
 
   <!-- Custom fonts for this template-->
   <link href="{{asset('/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
@@ -36,7 +36,7 @@
     <!-- Sidebar -->
     <ul class="navbar-nav bg-gradient-success sidebar sidebar-dark accordion" id="accordionSidebar">
         <div class="text-center">
-            <img src="{{asset('img/logo.png')}}" class="img-fluid rounded-circe">
+            <img src="{{asset('img/Logo_header.png')}}" class="img-fluid rounded-circe">
         </div>
       <!-- Sidebar - Brand -->
       <!-- <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{route('blogs.index')}}">

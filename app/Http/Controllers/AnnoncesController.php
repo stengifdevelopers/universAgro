@@ -16,7 +16,7 @@ class AnnoncesController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth')->except(['list', 'details']);
+        $this->middleware('auth')->except(['list', 'details', 'findAnnonce']);
     }
 
 
@@ -35,6 +35,20 @@ class AnnoncesController extends Controller
         ->get();
 
         return view('Admin.annonces.index', compact('annonces'));
+    }
+
+    public function findAnnonce(Request $request)
+    {
+        $annonces=Annonce::orderBy('id', 'DESC');
+       
+        $request->type_announce !=null ? $annonces=$annonces->where('type_announce', $request->type_announce):$annonces=$annonces;
+        $request->titre !=null ? $annonces= $annonces->where('titre',"LIKE","%".$request->titre."%"):$annonces=$annonces;
+        $annonces= $annonces->limit(10)->get();
+
+        $actu=Annonce::where('type_announce', 0)->get();
+        $offers=Annonce::where('type_announce', 1)->get();
+
+        return view('pages.annonces.index', compact('annonces', 'actu', 'offers'));
     }
 
     public function list()

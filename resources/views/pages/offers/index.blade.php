@@ -17,6 +17,43 @@
 </div>
 
 <div class="container">
+    <div class="green pb-1 px-5 rounded mt-4">
+
+        <form action="{{ route('findOffre') }}" method="POST">
+            @csrf
+            <div class="row d-flex align-items-center justify-content-center">
+                <div class="col-lg-6 justify-content-sm-center justify-content-lg-center">
+                  <div class="row pt-3 ">
+                    <div class="form-group mr-3">
+                        <select class="browser-default custom-select" name="type_offre" style="border-color: darkorange; ">
+                            <option selected disabled>Choisir une categorie</option>
+                            <option value="Emploi">Emploi</option>
+                             <option value="Stage">Stage</option>
+                        </select>
+                    </div>
+                    <div class="form-group ">
+                        <select class="browser-default custom-select" name="type_contrat" style="border-color: darkorange; ">
+                            <option selected disabled>Type contrat</option>
+                            <option value="CDD" >Contrat à durée déterminée</option>
+                           <option value="CDI" >Contrat à durée indéterminée</option>
+                        </select>
+                    </div>
+    
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="row">
+                  <div class="col-md-8">
+                        <input class="form-control form-control-md  mr-3 w-100" type="text" name="titre" placeholder="Saisir un mot clé" aria-label="Search" style="border-color: darkorange; ">
+                  </div>
+                  <div class="col-md-4">
+                    <input type="submit" class="btn-sm btn-primary" value="Recherchez" >
+                  </div>
+                </div>
+                </div>
+             </div>
+        </form>
+        </div>
  <p class="my-5 text-center h6 mx-5">Vous êtes intéréssés par une offre, 
      faites le choix sur celle qui vous convient et deposez vos documents à l'offreur  
  </p>

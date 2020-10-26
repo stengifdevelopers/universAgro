@@ -13,6 +13,19 @@ class TutorialsController extends Controller
      */
     public function index()
     {
+
+        //
+    }
+
+    public function tutoriel()
+    {
+        return view('pages.tutoriel.tutoriel');
+        //
+    }
+
+    public function details()
+    {
+        return view('pages.tutoriel.details');
         //
     }
 
