@@ -1,0 +1,79 @@
+.field-icon {
+    float: right;
+    margin-right: 10px;
+    margin-top: -25px;
+    position: relative;
+    z-index: 2;
+}
+/* Style blog for active menu */
+.actived{
+    background-color: white;
+}
+
+.active_hover:hover{
+    background-color: white;
+}
+
+.border_left{
+    border-right: 2px dashed grey;
+  }
+  .bg-agro-orange{
+      background-color: #b06c21;
+  }
+  .hr-height{
+      height:2px ;
+  }
+  .txt-agro-orange{
+    color: #b06c21;
+  }
+  #navigations #en-cours a {
+  /* padding: 3px 10px;
+  margin: 2px; */
+  font-weight: bold;
+  color: #ffff !important;
+  }
+   /* Styles pour la rubrique en cours */
+   #en-cours{
+    background-color: green;
+    padding-top: 4px;
+    padding-bottom: 2px;
+    color: #ffff !important;
+  }
+
+  .text-black-color-st:hover {
+    color: honeydew !important;
+  }
+
+  .text-black-color-st {
+    color: rgba(0, 0, 0, 0.5) !important;
+  }
+
+ /* Styles pour les liens survolés ou sélectionnés au clavier*/
+  .text-black-st:hover {
+    background-color: green;
+    padding-top: 4px;
+    padding-bottom: 2px;
+    margin-right: 2px;
+    margin-left: 2px;
+    color: #ffff !important;
+  }
+   #navig a {
+    /*padding: 3px 10px;
+    margin: 2px;*/
+    font-weight: bold;
+  }
+
+  #navig #en-real a{
+    color: #ffff !important;
+    background-color: #bdbdbd;
+  }
+
+  .realisat {
+    color: rgba(0, 0, 0, 0.5) !important;
+  }
+
+  .realisation:hover {
+    background-color: #bdbdbd ;
+
+    color: #ffff !important;
+  }
